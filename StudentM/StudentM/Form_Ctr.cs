@@ -21,10 +21,10 @@ namespace StudentM
 
         private void Form_Ctr_Load(object sender, EventArgs e)
         {
-            if()
-            {
-            
-            }
+            //if(conn.connsta==false)
+            //{
+            //    MessageBox.Show("数据库连接异常");
+            //}
             DataSet ds =Search.Sway();
             listView1.Items.Clear();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
