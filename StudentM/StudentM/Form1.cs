@@ -55,6 +55,7 @@ namespace StudentM
                 lvi.SubItems.Add(ds.Tables[0].Rows[i][4].ToString());//剩余学分
                 listView1.Items.Add(lvi);
             }
+            Thread.Sleep(1500);
             skinRollingBar1.StopRolling();
             skinRollingBar1.Enabled = false;
             skinRollingBar1.Visible = false;
