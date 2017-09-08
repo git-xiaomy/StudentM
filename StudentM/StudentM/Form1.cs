@@ -47,9 +47,9 @@ namespace StudentM
                     lvi.SubItems.Add(ds.Tables[0].Rows[i][1].ToString());//学号
                     lvi.SubItems.Add(ds.Tables[0].Rows[i][2].ToString());//姓名
                     lvi.SubItems.Add(ds.Tables[0].Rows[i][3].ToString());//班级
-                    lvi.SubItems.Add(ds.Tables[0].Rows[i][5].ToString());//电话
-                    lvi.SubItems.Add(ds.Tables[0].Rows[i][6].ToString());//QQ
-                    lvi.SubItems.Add(ds.Tables[0].Rows[i][7].ToString());//邮箱
+                    lvi.SubItems.Add(ds.Tables[0].Rows[i][5].ToString()==""?"暂无": ds.Tables[0].Rows[i][5].ToString());//电话
+                    lvi.SubItems.Add(ds.Tables[0].Rows[i][6].ToString() == "" ? "暂无" : ds.Tables[0].Rows[i][6].ToString());//QQ
+                    lvi.SubItems.Add(ds.Tables[0].Rows[i][7].ToString() == "" ? "暂无" : ds.Tables[0].Rows[i][7].ToString());//邮箱
                     lvi.SubItems.Add(ds.Tables[0].Rows[i][4].ToString());//剩余学分
                     listView1.Items.Add(lvi);
                 }
