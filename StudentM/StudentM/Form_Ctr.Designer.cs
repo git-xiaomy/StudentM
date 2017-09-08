@@ -42,7 +42,7 @@
             this.姓名,
             this.班级,
             this.学分});
-            this.listView1.Location = new System.Drawing.Point(12, 21);
+            this.listView1.Location = new System.Drawing.Point(20, 51);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(380, 254);
             this.listView1.TabIndex = 0;
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 300);
+            this.ClientSize = new System.Drawing.Size(615, 324);
             this.Controls.Add(this.listView1);
             this.Name = "Form_Ctr";
             this.Text = "Form_Ctr";
