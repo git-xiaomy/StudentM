@@ -14,6 +14,7 @@ namespace StudentM
     /// </summary>
     class conn
     {
+        public static bool connsta = false;//数据库连接状态
 
        //此方法用于连接数据库  成功返回true 失败返回false
         public static bool Conndb()
@@ -27,18 +28,21 @@ namespace StudentM
             {
                 conn.Open();
                 b = true;
+                connsta = true;
                 conn.Close();
-
             }
             catch
             {
                 b = false;
-
-
-            }
+             }
 
             return b;
         }
-
+        public static bool Changeti()
+        {
+            bool b = false;
+           string Sql = "update basic set credits=50 where id='" + ID + "'";
+            return b;
+        }
     }
 }
