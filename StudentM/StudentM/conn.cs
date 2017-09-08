@@ -15,14 +15,12 @@ namespace StudentM
     class conn
     {
         public static bool connsta = false;//数据库连接状态
-
+        public static SqlConnection conn;
        //此方法用于连接数据库  成功返回true 失败返回false
         public static bool Conndb()
         {
             bool b = false;
-            string sql = "";
             String connsql = "Data Source=198.168.1.198;Initial CataLog = StudentM;User ID=StudentM;Pwd=123654";
-            SqlConnection conn;
             conn = new SqlConnection(connsql);
             try
             {
@@ -38,11 +36,20 @@ namespace StudentM
 
             return b;
         }
+        /// <summary>
+        /// 更改信息
+        /// </summary>
+        /// <returns></returns>
         public static bool Changeti()
         {
             bool b = false;
-           string Sql = "update basic set credits=50 where id='" + ID + "'";
+            
+          
             return b;
+        }
+        public static bool Add()
+        {
+            
         }
     }
 }
