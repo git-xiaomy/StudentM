@@ -37,7 +37,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "更改";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // Form_Ctr
@@ -47,7 +47,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.button1);
             this.Name = "Form_Ctr";
-            this.Text = "Form_Y";
+            this.Text = "Form_Ctr";
             this.ResumeLayout(false);
 
         }
