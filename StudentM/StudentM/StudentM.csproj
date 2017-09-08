@@ -64,11 +64,11 @@
     <Compile Include="Form_Ctr.Designer.cs">
       <DependentUpon>Form_Ctr.cs</DependentUpon>
     </Compile>
-    <Compile Include="From_Str.cs">
+    <Compile Include="Form_Str.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="From_Str.Designer.cs">
-      <DependentUpon>From_Str.cs</DependentUpon>
+    <Compile Include="Form_Str.Designer.cs">
+      <DependentUpon>Form_Str.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,8 +78,8 @@
     <EmbeddedResource Include="Form_Ctr.resx">
       <DependentUpon>Form_Ctr.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="From_Str.resx">
-      <DependentUpon>From_Str.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Str.resx">
+      <DependentUpon>Form_Str.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
