@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CCWin;
 
 namespace StudentM
 {
-    public partial class From_Str : Form
+    public partial class Form_Str : Skin_Mac
     {
-        public From_Str()
+        public Form_Str()
         {
             InitializeComponent();
+           
         }
+
+     
     }
 }
