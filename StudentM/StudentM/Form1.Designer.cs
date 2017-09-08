@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            CCWin.SkinControl.SkinRollingBarThemeBase skinRollingBarThemeBase2 = new CCWin.SkinControl.SkinRollingBarThemeBase();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -46,6 +47,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.skinRollingBar1 = new CCWin.SkinControl.SkinRollingBar();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -209,12 +212,49 @@
             this.label4.Text = "设置|关于";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // skinRollingBar1
+            // 
+            this.skinRollingBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.skinRollingBar1.Location = new System.Drawing.Point(420, 199);
+            this.skinRollingBar1.Name = "skinRollingBar1";
+            this.skinRollingBar1.PenWidth = 5F;
+            this.skinRollingBar1.Radius1 = 50;
+            this.skinRollingBar1.Size = new System.Drawing.Size(149, 102);
+            this.skinRollingBar1.Style = CCWin.SkinControl.RollingBarStyle.BigGuyLeadsLittleGuys;
+            this.skinRollingBar1.TabIndex = 9;
+            this.skinRollingBar1.TabStop = false;
+            skinRollingBarThemeBase2.BackColor = System.Drawing.Color.Transparent;
+            skinRollingBarThemeBase2.BaseColor = System.Drawing.Color.Red;
+            skinRollingBarThemeBase2.DiamondColor = System.Drawing.Color.White;
+            skinRollingBarThemeBase2.PenWidth = 5F;
+            skinRollingBarThemeBase2.Radius1 = 50;
+            skinRollingBarThemeBase2.Radius2 = 20;
+            skinRollingBarThemeBase2.SpokeNum = 12;
+            this.skinRollingBar1.XTheme = skinRollingBarThemeBase2;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(310, 315);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(384, 28);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "数据库连接中";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1002, 616);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.skinRollingBar1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label3);
@@ -259,6 +299,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label4;
+        private CCWin.SkinControl.SkinRollingBar skinRollingBar1;
+        private System.Windows.Forms.Label label5;
     }
 }
 

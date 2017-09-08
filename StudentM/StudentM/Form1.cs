@@ -17,7 +17,30 @@ namespace StudentM
         {
             InitializeComponent();
             listView1.Size = new Size(this.Size.Width - 5, listView1.Size.Height);//调整listview宽度
+            initdb();
         }
+
+
+        public void initdb() {
+            skinRollingBar1.StartRolling();
+            Boolean b = conn.Conndb();
+            if (b)
+            {
+                /*skinRollingBar1.StopRolling();
+                skinRollingBar1.Enabled = false;
+                skinRollingBar1.Visible = false;
+                label5.Enabled = false;
+                label5.Visible = false;*/
+                label5.Text = "数据库连接成功，信息获取中...";
+            }
+            else {
+                label5.Text = "数据库连接失败";
+            }
+        }
+
+        public void addlist() {
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
