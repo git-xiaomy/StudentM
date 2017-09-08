@@ -105,9 +105,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\tiwen.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dianming.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\problem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settingandabout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

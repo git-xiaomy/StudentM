@@ -18,6 +18,7 @@ namespace StudentM
        static SqlConnection conn;
        public static DataSet Sway()//查询的方法，返回值DataSet
         {
+           
             sql = "select * from basic";
             SqlCommand Com = new SqlCommand(sql, conn);//为执行sql做准备
             SqlDataAdapter sda = new SqlDataAdapter();//Adapter适配器

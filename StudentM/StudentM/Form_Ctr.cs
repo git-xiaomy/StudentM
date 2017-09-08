@@ -13,10 +13,7 @@ using CCWin;
 namespace StudentM
 {
     public partial class Form_Ctr : Skin_Mac
-    {
-        static string sql = "";
-
-        static SqlConnection conn;
+    {        
         public Form_Ctr()
         {
             InitializeComponent();
@@ -24,6 +21,10 @@ namespace StudentM
 
         private void Form_Ctr_Load(object sender, EventArgs e)
         {
+            if()
+            {
+            
+            }
             DataSet ds =Search.Sway();
             listView1.Items.Clear();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
