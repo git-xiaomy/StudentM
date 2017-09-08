@@ -53,9 +53,9 @@ namespace StudentM
                     lvi.SubItems.Add(ds.Tables[0].Rows[i][4].ToString());//剩余学分
                     listView1.Items.Add(lvi);
                 }
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 label5.Text = "信息获取完毕";
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 skinRollingBar1.StopRolling();
                 skinRollingBar1.Enabled = false;
                 skinRollingBar1.Visible = false;
