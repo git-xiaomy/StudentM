@@ -26,7 +26,7 @@ namespace StudentM
             }
             else {
                 sql = "select * from basic";
-                Com = new SqlCommand(sql, conn.conn);//为执行sql做准备
+                Com = new SqlCommand(sql, conn.con);//为执行sql做准备
                 sda = new SqlDataAdapter();//Adapter适配器
                 sda.SelectCommand = Com;
                 sda.Fill(ds);
