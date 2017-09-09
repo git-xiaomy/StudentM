@@ -57,18 +57,18 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(93, 44);
+            this.label1.Location = new System.Drawing.Point(98, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 23);
+            this.label1.Size = new System.Drawing.Size(118, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "学生姓名：";
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(192, 44);
+            this.label2.Location = new System.Drawing.Point(197, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 23);
+            this.label2.Size = new System.Drawing.Size(73, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "xx";
             // 
