@@ -20,7 +20,8 @@ namespace StudentM
         public static bool Conndb()
         {
             bool b = false;
-            String connsql = "Data Source=198.168.1.198;Initial CataLog = StudentM;User ID=StudentM;Pwd=123654";
+            //String connsql = "Data Source=198.168.1.198;Initial CataLog = StudentM;User ID=StudentM;Pwd=123654;Connection Timeout=3";
+            String connsql = "Data Source=127.0.0.1;Initial CataLog = StudentM;User ID=StudentM;Pwd=123654;Connection Timeout=3";
             con = new SqlConnection(connsql);
             try
             {

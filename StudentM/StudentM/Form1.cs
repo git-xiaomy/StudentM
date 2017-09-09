@@ -16,51 +16,57 @@ namespace StudentM
     {
         public Form1()
         {
+            Control.CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
             listView1.Size = new Size(this.Size.Width - 5, listView1.Size.Height);//调整listview宽度
-            initdb();
+            //开始动画效果
+            skinRollingBar1.StartRolling();
+            //初始化
+            Thread init = new Thread(initdb);
+            init.Start();
         }
 
-
+        /// <summary>
+        /// 1.获取数据库连接状态
+        /// 2.获取学生数据
+        /// 3.添加listview
+        /// </summary>
         public void initdb() {
-            skinRollingBar1.StartRolling();
+            Thread.Sleep(1000);
             Boolean b = conn.Conndb();
             if (b)
             {
-                /*skinRollingBar1.StopRolling();
+                label5.Text = "数据库连接成功，信息获取中...";
+                Thread.Sleep(1000);
+                //获取数据库学生信息
+                DataSet ds = Search.Sway();
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    ListViewItem lvi = new ListViewItem();
+                    lvi.Text = ds.Tables[0].Rows[i][0].ToString();//ID
+                    lvi.SubItems.Add(ds.Tables[0].Rows[i][1].ToString());//学号
+                    lvi.SubItems.Add(ds.Tables[0].Rows[i][2].ToString());//姓名
+                    lvi.SubItems.Add(ds.Tables[0].Rows[i][3].ToString());//班级
+                    lvi.SubItems.Add(ds.Tables[0].Rows[i][5].ToString()==""?"暂无": ds.Tables[0].Rows[i][5].ToString());//电话
+                    lvi.SubItems.Add(ds.Tables[0].Rows[i][6].ToString() == "" ? "暂无" : ds.Tables[0].Rows[i][6].ToString());//QQ
+                    lvi.SubItems.Add(ds.Tables[0].Rows[i][7].ToString() == "" ? "暂无" : ds.Tables[0].Rows[i][7].ToString());//邮箱
+                    lvi.SubItems.Add(ds.Tables[0].Rows[i][4].ToString());//剩余学分
+                    listView1.Items.Add(lvi);
+                }
+                Thread.Sleep(500);
+                label5.Text = "信息获取完毕";
+                Thread.Sleep(500);
+                skinRollingBar1.StopRolling();
                 skinRollingBar1.Enabled = false;
                 skinRollingBar1.Visible = false;
                 label5.Enabled = false;
-                label5.Visible = false;*/
-                label5.Text = "数据库连接成功，信息获取中...";
-                addlist();
+                label5.Visible = false;
             }
             else {
                 label5.Text = "数据库连接失败";
             }
         }
 
-        public void addlist() {
-            DataSet ds = Search.Sway();//获取数据库学生信息
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                ListViewItem lvi = new ListViewItem();
-                lvi.Text = ds.Tables[0].Rows[i][0].ToString();//ID
-                lvi.SubItems.Add(ds.Tables[0].Rows[i][1].ToString());//学号
-                lvi.SubItems.Add(ds.Tables[0].Rows[i][2].ToString());//姓名
-                lvi.SubItems.Add(ds.Tables[0].Rows[i][3].ToString());//班级
-                lvi.SubItems.Add(ds.Tables[0].Rows[i][5].ToString());//电话
-                lvi.SubItems.Add(ds.Tables[0].Rows[i][6].ToString());//QQ
-                lvi.SubItems.Add(ds.Tables[0].Rows[i][7].ToString());//邮箱
-                lvi.SubItems.Add(ds.Tables[0].Rows[i][4].ToString());//剩余学分
-                listView1.Items.Add(lvi);
-            }
-            /*skinRollingBar1.StopRolling();
-            skinRollingBar1.Enabled = false;
-            skinRollingBar1.Visible = false;
-            label5.Enabled = false;
-            label5.Visible = false;*/
-        }
 
 
         private void button1_Click(object sender, EventArgs e)
