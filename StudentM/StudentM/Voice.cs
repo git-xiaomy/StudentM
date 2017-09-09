@@ -25,7 +25,7 @@ namespace StudentM
 
         //语音播报线程，防止卡UI
         private static void say(Object o) {
-            synth.Speak(o.ToString());
+            //synth.Speak(o.ToString());
         }
     }
 }
