@@ -23,7 +23,7 @@ namespace StudentM
             skinRollingBar1.StartRolling();
             //初始化
             Voice.init();//初始化语音类
-            Voice.said("欢迎使用银河学生管理系统");
+            Voice.said("Hello,EverBody");
             Thread init = new Thread(initdb);
             init.Start();
         }
@@ -34,12 +34,11 @@ namespace StudentM
         /// 3.添加listview
         /// </summary>
         public void initdb() {
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Boolean b = conn.Conndb();
             if (b)
             {
                 label5.Text = "数据库连接成功，信息获取中...";
-                Thread.Sleep(1000);
                 //获取数据库学生信息
                 DataSet ds = Search.Sway();
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -166,6 +165,22 @@ namespace StudentM
             String name = listView1.SelectedItems[0].SubItems[2].Text;
             Form_Str str = new Form_Str(id, name);
             str.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (label5.Visible != false)
+            {
+                return;
+            }
+
+            String[] s = new string[listView1.Items.Count];
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                s[i] = listView1.Items[i].SubItems[2].Text;
+            }
+            R_questions r = new R_questions(s);
+            r.Show();
         }
     }
 }
