@@ -23,7 +23,10 @@ namespace StudentM
             InitializeComponent();
            
         }
-        
-     
+
+        private void Form_Str_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

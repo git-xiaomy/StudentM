@@ -78,7 +78,8 @@ namespace StudentM
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+            Form_Ctr yybb = new Form_Ctr();
+            yybb.Show();
         }
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
@@ -157,6 +158,14 @@ namespace StudentM
             //控件，方式（放大为0，缩小为1），放大或缩小像素
             this.Cursor = Cursors.Default;
             Dr.butt(pictureBox4, 1, 7);
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            String id = listView1.SelectedItems[0].SubItems[0].Text;
+            String name = listView1.SelectedItems[0].SubItems[2].Text;
+            Form_Str str = new Form_Str(id, name);
+            str.Show();
         }
     }
 }
