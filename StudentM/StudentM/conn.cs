@@ -41,16 +41,39 @@ namespace StudentM
         /// 更改信息
         /// </summary>
         /// <returns></returns>
-        public static void Changeti()
+        public static bool Changeti()
         {
-            
+            bool b = false;
+                if(connsta ==true)
+                {
+                    string ChangetiSql = "";
+
+                    return b = true;
+                }
+                else
+                {
+                    MessageBox.Show("数据库连接异常");
+
+                } return b;
         }
         /// <summary>
-        /// 添加信息
+        /// 添加学生
         /// </summary>
-        public static void Add()
+        public static bool Add()
         {
-            
+            bool b = false;
+            if (connsta == true)
+            {
+                string AddSql = "";
+
+                return b = true;
+            }
+            else
+            {
+                MessageBox.Show("数据库连接异常");
+
+            } return b;
         }
+        
     }
 }
