@@ -22,6 +22,8 @@ namespace StudentM
             //开始动画效果
             skinRollingBar1.StartRolling();
             //初始化
+            Voice.init();//初始化语音类
+            Voice.said("欢迎使用银河学生管理系统");
             Thread init = new Thread(initdb);
             init.Start();
         }
