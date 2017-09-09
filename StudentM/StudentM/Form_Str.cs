@@ -15,11 +15,14 @@ namespace StudentM
     {
         public Form_Str(string ID,string Name)
         {
-            InitializeComponent();
             MessageBox.Show("ID为"+ID+"\n姓名为"+Name);
         }
 
-        
+        public Form_Str()
+        {
+            InitializeComponent();
+           
+        }
         
      
     }
