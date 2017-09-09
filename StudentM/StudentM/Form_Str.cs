@@ -13,15 +13,17 @@ namespace StudentM
 {
     public partial class Form_Str : Skin_Mac
     {
-        public Form_Str(string ID,string Name)
-        {
-            MessageBox.Show("ID为"+ID+"\n姓名为"+Name);
-        }
+       
 
-        public Form_Str()
+        public Form_Str(String id,String name)
         {
             InitializeComponent();
            
+        }
+
+        private void Form_Str_Load(object sender, EventArgs e)
+        {
+
         }
         
      
