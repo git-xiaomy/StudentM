@@ -28,7 +28,7 @@ namespace StudentM
             {
             label2.Text = name;//大标题学生姓名
             label5.Text = "";//迟到总次数
-            listView1.
+            //listView1.
 
             }
             else

@@ -256,7 +256,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form_Str";
             this.Text = "学生信息";
-            this.Load += new System.EventHandler(this.Form_Str_Load);
+            //this.Load += new System.EventHandler(this.Form_Str_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

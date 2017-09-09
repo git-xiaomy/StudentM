@@ -15,16 +15,14 @@ namespace StudentM
 {
     public partial class Form_Ctr : Skin_Mac
     {
-        Thread t;
+        Thread th = null;
         public Form_Ctr()
         {
             InitializeComponent();
         }
 
         private void Form_Ctr_Load(object sender, EventArgs e)
-        {
-            t = new Thread(new ThreadStart(ThreadMethod));
-            //t.Start();
+        {          
             //if(conn.connsta==false)
             //{
             //    MessageBox.Show("数据库连接异常");
@@ -42,27 +40,46 @@ namespace StudentM
             }
         }
 
-        private void skinButton1_Click(object sender, EventArgs e)//开始点名，调用方法并把“姓名”传过去
+        private void skinButton1_Click(object sender, EventArgs e)//用线程开始点名
         {
-            //Thread t = new Thread(ThreadMethod);
-            //t.Start();
-            ThreadMethod();         
+            th = new Thread(new ThreadStart(ThreadMethod));//线程入口
+            th.Start();
+            skinButton2.Enabled = true;
         }
 
         private void skinButton2_Click(object sender, EventArgs e)//暂停点名
         {
-            //Thread t = new Thread(new ThreadStart(ThreadMethod));
-
-            //t.Suspend();
+            if (skinButton2.Text == "暂停")
+            {
+                th.Suspend();
+                skinButton2.Text = "继续";
+                skinButton3.Enabled = false;
+            }
+            else {
+                th.Resume();
+                skinButton2.Text = "暂停";
+            }                      
         }
-        public void ThreadMethod()
+        private void skinButton3_Click(object sender, EventArgs e)
+        {
+            th.Abort();
+            skinButton2.Enabled = false;
+        }
+        public void ThreadMethod()//调用方法并把“姓名”传过去，进行语音点名
         {
             DataSet ds = Search.Sway();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)//遍历每个姓名
             {
                 string s = listView1.Items[i].SubItems[2].Text;
                 Voice.said(s);
-            } 
+                Thread.Sleep(2000);
+            }
+            //MessageBox.Show("线程执行完毕");
+        }
+
+        private void skinButton4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
