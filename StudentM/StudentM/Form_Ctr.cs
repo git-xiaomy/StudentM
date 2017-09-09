@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CCWin;
+using System.Threading;
 
 namespace StudentM
 {
     public partial class Form_Ctr : Skin_Mac
-    {        
+    {
+        Thread t;
         public Form_Ctr()
         {
             InitializeComponent();
@@ -21,6 +23,8 @@ namespace StudentM
 
         private void Form_Ctr_Load(object sender, EventArgs e)
         {
+            t = new Thread(new ThreadStart(ThreadMethod));
+            //t.Start();
             //if(conn.connsta==false)
             //{
             //    MessageBox.Show("数据库连接异常");
@@ -36,6 +40,29 @@ namespace StudentM
                 lvi.SubItems.Add(ds.Tables[0].Rows[i][3].ToString());//学分
                 this.listView1.Items.Add(lvi);
             }
+        }
+
+        private void skinButton1_Click(object sender, EventArgs e)//开始点名，调用方法并把“姓名”传过去
+        {
+            //Thread t = new Thread(ThreadMethod);
+            //t.Start();
+            ThreadMethod();         
+        }
+
+        private void skinButton2_Click(object sender, EventArgs e)//暂停点名
+        {
+            //Thread t = new Thread(new ThreadStart(ThreadMethod));
+
+            //t.Suspend();
+        }
+        public void ThreadMethod()
+        {
+            DataSet ds = Search.Sway();
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)//遍历每个姓名
+            {
+                string s = listView1.Items[i].SubItems[2].Text;
+                Voice.said(s);
+            } 
         }
     }
 }

@@ -88,6 +88,7 @@
             this.skinButton1.TabIndex = 1;
             this.skinButton1.Text = "开始";
             this.skinButton1.UseVisualStyleBackColor = false;
+            this.skinButton1.Click += new System.EventHandler(this.skinButton1_Click);
             // 
             // skinButton2
             // 
@@ -104,6 +105,7 @@
             this.skinButton2.TabIndex = 2;
             this.skinButton2.Text = "暂停";
             this.skinButton2.UseVisualStyleBackColor = false;
+            this.skinButton2.Click += new System.EventHandler(this.skinButton2_Click);
             // 
             // skinButton3
             // 
