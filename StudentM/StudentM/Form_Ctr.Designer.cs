@@ -37,6 +37,7 @@
             this.skinButton1 = new CCWin.SkinControl.SkinButton();
             this.skinButton2 = new CCWin.SkinControl.SkinButton();
             this.skinButton3 = new CCWin.SkinControl.SkinButton();
+            this.skinButton4 = new CCWin.SkinControl.SkinButton();
             this.SuspendLayout();
             // 
             // listView1
@@ -97,7 +98,7 @@
             this.skinButton2.BorderColor = System.Drawing.Color.PaleTurquoise;
             this.skinButton2.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.skinButton2.DownBack = null;
-            this.skinButton2.Location = new System.Drawing.Point(447, 118);
+            this.skinButton2.Location = new System.Drawing.Point(447, 120);
             this.skinButton2.MouseBack = null;
             this.skinButton2.Name = "skinButton2";
             this.skinButton2.NormlBack = null;
@@ -122,12 +123,31 @@
             this.skinButton3.TabIndex = 3;
             this.skinButton3.Text = "停止";
             this.skinButton3.UseVisualStyleBackColor = false;
+            this.skinButton3.Click += new System.EventHandler(this.skinButton3_Click);
+            // 
+            // skinButton4
+            // 
+            this.skinButton4.BackColor = System.Drawing.Color.Transparent;
+            this.skinButton4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.skinButton4.BorderColor = System.Drawing.Color.PaleTurquoise;
+            this.skinButton4.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.skinButton4.DownBack = null;
+            this.skinButton4.Location = new System.Drawing.Point(447, 234);
+            this.skinButton4.MouseBack = null;
+            this.skinButton4.Name = "skinButton4";
+            this.skinButton4.NormlBack = null;
+            this.skinButton4.Size = new System.Drawing.Size(75, 23);
+            this.skinButton4.TabIndex = 4;
+            this.skinButton4.Text = "随机点名";
+            this.skinButton4.UseVisualStyleBackColor = false;
+            this.skinButton4.Click += new System.EventHandler(this.skinButton4_Click);
             // 
             // Form_Ctr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 324);
+            this.Controls.Add(this.skinButton4);
             this.Controls.Add(this.skinButton3);
             this.Controls.Add(this.skinButton2);
             this.Controls.Add(this.skinButton1);
@@ -149,6 +169,7 @@
         private CCWin.SkinControl.SkinButton skinButton1;
         private CCWin.SkinControl.SkinButton skinButton2;
         private CCWin.SkinControl.SkinButton skinButton3;
+        private CCWin.SkinControl.SkinButton skinButton4;
 
     }
 }
