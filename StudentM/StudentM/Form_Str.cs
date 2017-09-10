@@ -20,22 +20,19 @@ namespace StudentM
         {
             InitializeComponent();
             conn.Conndb();
+            
             if (conn.connsta == true)
-            {                                                                                                       
-                label2.Text = name;//大标题学生姓名
-                
+            {
+                DataSet ds = Search.Sway();//调用查询方法     
+                label2.Text =ds.Tables[0].Rows[0][3].ToString();//大标题学生姓名
                 label5.Text = "";//迟到总次数
                 label9.Text = "";//旷课总次数
                 label8.Text = "";//剩余学分
-                SqlDataAdapter sda = new SqlDataAdapter();//Adapter适配器
-                sda.SelectCommand = con;
-                DataSet ds = new DataSet();//创建一个数据缓存 用来接受数据库里的数据集合
-                sda.Fill(ds);
                 listView1.Items.Clear();
                 for (int i = 0; i < ds.Tables[0].Rows.Count;i++ )//数据库里有多少行
                 {
                     ListViewItem lvi = new ListViewItem();//新建一行，添加每列数据
-                    lvi.Text=(ds.Tables[0].Rows[i][0].ToString());//                                          改为 获取类别（旷课或者迟到）
+                    lvi.Text=(ds.Tables[0].Rows[i][0].ToString());//  tables后的参数为 表 rows后两个参数为行和列                改为 获取类别（旷课或者迟到）
                     lvi.SubItems.Add(ds.Tables[0].Rows[i][0].ToString());                                  // 获取时间
                     listView1.Items.Add(lvi);//添加以上数据到第一个列表（迟到旷课记录）
                     //下为添加第二列数据
