@@ -41,12 +41,12 @@ namespace StudentM
         /// 更改信息
         /// </summary>
         /// <returns></returns>
-        public static bool Changeti(int id,string Change)//Change为需要更新的值
+        public static bool Changeti(int id,string QQ,string tel,string email,int sredits)
         {
             bool b = false;
                 if(connsta ==true)
-                {                                       //更改学分sredits                                                      ？？？
-                    string ChangetiSql = "update basic set sredits='"+Change+"'where id='"+id+"'";
+                {                                       //更改信息
+                    string ChangetiSql = "update basic set QQ='" + QQ + ",del='" + tel + "',email='" + sredits + ",credits='"+sredits+"' where id='" + id + "'";
                     SqlCommand Changeti = new SqlCommand(ChangetiSql, con);//实例化数据库对象                           
                     try
                     {
@@ -77,12 +77,12 @@ namespace StudentM
             bool b = false;
             if (connsta == true)
             {
-                string AddSql = "insert into basic values('sid','name','sclass','credits','del','QQ','email')";//添加学生信息
+                string AddSql = "insert into basic（Sid，name，class，credits,del,QQ,email） values('"+sid+"','"+name+"','"+sclass+"','"+credits+"','"+del+"','"+QQ+"','"+email+"')";//添加学生信息
                 SqlCommand Add = new SqlCommand(AddSql,con);
                 try
                 {
                     con.Open();
-                    Add.ExecuteNonQuery();                                                                             
+                    Add.ExecuteNonQuery();      
                     b = true;
                     con.Close();
                 }
@@ -100,7 +100,7 @@ namespace StudentM
         }
         //删除学生
         public static bool delect(int id)
-        {               //接收 删除学生                                                                 
+        {               //接收 删除学生的id                                                                
             string DelectSql = "delect from basic where id='"+id+"'";
             SqlCommand delect = new SqlCommand(DelectSql,con);
             bool b = false;
