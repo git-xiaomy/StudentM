@@ -45,9 +45,6 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -115,30 +112,31 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "类别";
-            this.columnHeader1.Width = 67;
+            this.columnHeader1.Width = 66;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "具体时间";
-            this.columnHeader2.Width = 193;
+            this.columnHeader2.Width = 191;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.删除ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(59, 381);
+            this.label6.Location = new System.Drawing.Point(59, 226);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 25);
             this.label6.TabIndex = 6;
@@ -150,7 +148,7 @@
             this.columnHeader3,
             this.columnHeader4});
             this.listView2.ContextMenuStrip = this.contextMenuStrip1;
-            this.listView2.Location = new System.Drawing.Point(52, 407);
+            this.listView2.Location = new System.Drawing.Point(52, 252);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(264, 99);
             this.listView2.TabIndex = 7;
@@ -170,7 +168,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(216, 381);
+            this.label7.Location = new System.Drawing.Point(216, 226);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 25);
             this.label7.TabIndex = 8;
@@ -179,39 +177,16 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(288, 381);
+            this.label8.Location = new System.Drawing.Point(288, 226);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 25);
             this.label8.TabIndex = 9;
             this.label8.Text = "xx";
             // 
-            // listView3
-            // 
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6});
-            this.listView3.ContextMenuStrip = this.contextMenuStrip1;
-            this.listView3.Location = new System.Drawing.Point(48, 250);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(264, 97);
-            this.listView3.TabIndex = 13;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "类别";
-            this.columnHeader5.Width = 67;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "具体时间";
-            this.columnHeader6.Width = 193;
-            // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(250, 222);
+            this.label9.Location = new System.Drawing.Point(88, 78);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(33, 23);
             this.label9.TabIndex = 12;
@@ -220,7 +195,7 @@
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(281, 224);
+            this.label10.Location = new System.Drawing.Point(119, 80);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 23);
             this.label10.TabIndex = 11;
@@ -229,7 +204,7 @@
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(215, 224);
+            this.label11.Location = new System.Drawing.Point(53, 80);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 23);
             this.label11.TabIndex = 10;
@@ -239,8 +214,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 568);
-            this.Controls.Add(this.listView3);
+            this.ClientSize = new System.Drawing.Size(385, 471);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
@@ -280,9 +254,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
