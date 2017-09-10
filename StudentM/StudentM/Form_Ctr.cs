@@ -79,7 +79,20 @@ namespace StudentM
 
         private void skinButton4_Click(object sender, EventArgs e)
         {
-
+            String s = null;
+            Random rd = new Random();//随机类 
+            s = listView1.Items.Count.ToString();
+            for (int i = 0; i <= 50; i++)
+            {
+                int r = rd.Next(s.Length);
+                //label1.Text = s[r];
+                Thread.Sleep(30);
+            }
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                s = listView1.Items[i].SubItems[2].Text;
+            }
+            Voice.said(s);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace StudentM
         public static bool Conndb()
         {
             bool b = false;
-            String connsql = "Data Source=192.168.0.108;Initial CataLog = StudentM;User ID=StudentM;Pwd=123654;Connection Timeout=3";
+            String connsql = "Data Source=192.168.1.100;Initial CataLog = StudentM;User ID=StudentM;Pwd=123654;Connection Timeout=3";
             //String connsql = "Data Source=127.0.0.1;Initial CataLog = StudentM;User ID=StudentM;Pwd=123654;Connection Timeout=3";
             con = new SqlConnection(connsql);
             try
@@ -41,17 +41,17 @@ namespace StudentM
         /// 更改信息
         /// </summary>
         /// <returns></returns>
-        public static bool Changeti(int id,string Change)//Change为需要更新的值
+        public static bool Changeti(int id,string QQ,string tel,string email,int sredits)
         {
             bool b = false;
                 if(connsta ==true)
-                {                                       //更改学分sredits                                                        ？？？检测
-                    string ChangetiSql = "update basic set sredits='"+Change+"'where id='"+id+"'";
-                    SqlCommand Changeti = new SqlCommand(ChangetiSql, con);//实例化数据库对象                                     ？？？
+                {                                       //更改信息
+                    string ChangetiSql = "update basic set QQ='" + QQ + ",del='" + tel + "',email='" + sredits + ",credits='"+sredits+"' where id='" + id + "'";
+                    SqlCommand Changeti = new SqlCommand(ChangetiSql, con);//实例化数据库对象                           
                     try
                     {
                         con.Open();
-                        //con.ExrcuteNonQuery();                                                                               ？？？    执行Sql语句                      
+                        Changeti.ExecuteNonQuery();  
                         b = true;//返回true 更改成功
                         con.Close();
                     }
@@ -77,22 +77,19 @@ namespace StudentM
             bool b = false;
             if (connsta == true)
             {
-                string AddSql = "insert into basic values('sid','name','sclass','credits','del','QQ','email')";//添加学生信息
+                string AddSql = "insert into basic（Sid，name，class，credits,del,QQ,email） values('"+sid+"','"+name+"','"+sclass+"','"+credits+"','"+del+"','"+QQ+"','"+email+"')";//添加学生信息
                 SqlCommand Add = new SqlCommand(AddSql,con);
                 try
                 {
                     con.Open();
-                    //con.ExrcuteNonQuery();                                                                               ？？？ 执行Sql语句
+                    Add.ExecuteNonQuery();      
                     b = true;
                     con.Close();
                 }
                 catch
                 {
-                    b = false;
-
+                 return b ;
                 }
-                
-                return b ;
            }
             else
             {
@@ -103,14 +100,14 @@ namespace StudentM
         }
         //删除学生
         public static bool delect(int id)
-        {               //接受id 删除学生                                                                   ？？？数据库名称
+        {               //接收 删除学生的id                                                                
             string DelectSql = "delect from basic where id='"+id+"'";
             SqlCommand delect = new SqlCommand(DelectSql,con);
             bool b = false;
             if(connsta==true)
             {
                 con.Open();
-                //con.ExrcuteNonQuery();                                                                  ？？？执行sql语句
+                delect.ExecuteNonQuery(); 
                 con.Close();
                 b = true;
             }
