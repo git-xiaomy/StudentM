@@ -45,13 +45,13 @@ namespace StudentM
         {
             bool b = false;
                 if(connsta ==true)
-                {                                       //更改学分sredits                                                        ？？？检测
+                {                                       //更改学分sredits                                                      ？？？
                     string ChangetiSql = "update basic set sredits='"+Change+"'where id='"+id+"'";
-                    SqlCommand Changeti = new SqlCommand(ChangetiSql, con);//实例化数据库对象                                     ？？？
+                    SqlCommand Changeti = new SqlCommand(ChangetiSql, con);//实例化数据库对象                           
                     try
                     {
                         con.Open();
-                        //con.ExrcuteNonQuery();                                                                               ？？？    执行Sql语句                      
+                        Changeti.ExecuteNonQuery();  
                         b = true;//返回true 更改成功
                         con.Close();
                     }
@@ -82,17 +82,14 @@ namespace StudentM
                 try
                 {
                     con.Open();
-                    //con.ExrcuteNonQuery();                                                                               ？？？ 执行Sql语句
+                    Add.ExecuteNonQuery();                                                                             
                     b = true;
                     con.Close();
                 }
                 catch
                 {
-                    b = false;
-
+                 return b ;
                 }
-                
-                return b ;
            }
             else
             {
@@ -103,14 +100,14 @@ namespace StudentM
         }
         //删除学生
         public static bool delect(int id)
-        {               //接受id 删除学生                                                                   ？？？数据库名称
+        {               //接收 删除学生                                                                 
             string DelectSql = "delect from basic where id='"+id+"'";
             SqlCommand delect = new SqlCommand(DelectSql,con);
             bool b = false;
             if(connsta==true)
             {
                 con.Open();
-                //con.ExrcuteNonQuery();                                                                  ？？？执行sql语句
+                delect.ExecuteNonQuery(); 
                 con.Close();
                 b = true;
             }
