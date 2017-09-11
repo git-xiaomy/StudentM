@@ -121,7 +121,6 @@
             this.listView1.Location = new System.Drawing.Point(7, 35);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Scrollable = false;
             this.listView1.Size = new System.Drawing.Size(938, 412);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -201,6 +200,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 7;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             this.pictureBox4.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
             this.pictureBox4.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
             // 
