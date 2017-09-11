@@ -20,7 +20,7 @@ namespace StudentM
         public static bool Conndb()
         {
             bool b = false;
-            String connsql = "Data Source=192.168.1.100;Initial CataLog = StudentM;User ID=StudentM;Pwd=123654;Connection Timeout=3";
+            String connsql = "Data Source=198.168.1.198;Initial CataLog = StudentM;User ID=StudentM;Pwd=123654;Connection Timeout=3";
             //String connsql = "Data Source=127.0.0.1;Initial CataLog = StudentM;User ID=StudentM;Pwd=123654;Connection Timeout=3";
             con = new SqlConnection(connsql);
             try
@@ -77,7 +77,7 @@ namespace StudentM
             bool b = false;
             if (connsta == true)
             {
-                string AddSql = "insert into basic（Sid，name，class，credits,del,QQ,email） values('"+sid+"','"+name+"','"+sclass+"','"+credits+"','"+del+"','"+QQ+"','"+email+"')";//添加学生信息
+                string AddSql = "insert into basic（name，class，credits,del,QQ,email） values('"+name+"','"+sclass+"','"+credits+"','"+del+"','"+QQ+"','"+email+"')";//添加学生信息
                 SqlCommand Add = new SqlCommand(AddSql,con);
                 try
                 {

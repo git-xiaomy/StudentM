@@ -69,7 +69,7 @@ namespace StudentM
             }
             if (listView1.SelectedItems.Count != 0)
             {
-                string ID = listView1.SelectedItems[0].SubItems[0].Text;//获取用户所选取的项
+                string ID = listView1.SelectedItems[0].SubItems[0].Text;//获取用户所选取的
                 
             } 
         }
