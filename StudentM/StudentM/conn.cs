@@ -72,12 +72,12 @@ namespace StudentM
         /// <summary>
         /// 添加学生
         /// </summary>
-        public static bool Add(string sid, string name,string sclass,string credits,string del,string QQ,string email)
+        public static bool Add( string Sid,string name,string sclass,int credits,string del,string QQ,string email)
         {
             bool b = false;
             if (connsta == true)
             {
-                string AddSql = "insert into basic（name，class，credits,del,QQ,email） values('"+name+"','"+sclass+"','"+credits+"','"+del+"','"+QQ+"','"+email+"')";//添加学生信息
+                string AddSql = "insert into basic（Sid,name，class，credits,del,QQ,email） values('"+Sid+"','"+name+"',"+sclass+",'"+credits+"','"+del+"','"+QQ+"','"+email+"')";//添加学生信息
                 SqlCommand Add = new SqlCommand(AddSql,con);
                 try
                 {
@@ -88,14 +88,11 @@ namespace StudentM
                 }
                 catch
                 {
-                 return b ;
+                    b = false;
+                    con.Close();
                 }
            }
-            else
-            {
-                MessageBox.Show("数据库连接异常");
-
-            } return b;//返回false 添加失败
+            return b;//返回false 添加失败
             
         }
         //删除学生
