@@ -58,6 +58,7 @@ namespace StudentM
             else {
                 th.Resume();
                 skinButton2.Text = "暂停";
+                skinButton3.Enabled = true;
             }                      
         }
         private void skinButton3_Click(object sender, EventArgs e)
@@ -79,20 +80,49 @@ namespace StudentM
 
         private void skinButton4_Click(object sender, EventArgs e)
         {
-            String s = null;
-            Random rd = new Random();//随机类 
-            s = listView1.Items.Count.ToString();
-            for (int i = 0; i <= 50; i++)
-            {
-                int r = rd.Next(s.Length);
-                //label1.Text = s[r];
-                Thread.Sleep(30);
-            }
-            for (int i = 0; i < listView1.Items.Count; i++)
-            {
-                s = listView1.Items[i].SubItems[2].Text;
-            }
-            Voice.said(s);
+            //String[] s = null;
+            //Random rd = new Random();//随机类 
+            //s = new string[listView1.Items.Count];
+            //for (int i = 0; i < listView1.Items.Count; i++)
+            //{
+            //    s[i] = listView1.Items[i].SubItems[2].Text;
+            //}
+            //for (int i = 0; i <= 50; i++)
+            //{
+            //    int r = rd.Next(s.Length);
+            //    string k = s[r];
+            //    Voice.said(k);
+            //    Thread.Sleep(30);
+            //}
+            
+             int [] arr=new int[listView1.Items.Count]; 
+             int i; 
+                //初始化数组 
+             for (i = 1; i <= listView1.Items.Count; i++)
+             {
+                 arr[i] = i;
+             }
+                //随机数 
+             Random r = new Random();
+             for (int j = 5; j >= 1; j--)
+             {
+                 int address = r.Next(1, j);
+                 int tmp = arr[address];
+                 arr[address] = arr[j];
+                 arr[j] = tmp;
+             }
+                //输出 
+             foreach (int id in arr)
+             {
+                 DataSet ds = Search.Sway();
+                 for (int j = 0; j < ds.Tables[0].Rows.Count; j++)//遍历每个姓名
+                 {
+                     string s = listView1.Items[id].SubItems[2].Text;
+                     Voice.said(s);
+                     Thread.Sleep(200);
+                 }
+             } 
+             
         }
     }
 }
