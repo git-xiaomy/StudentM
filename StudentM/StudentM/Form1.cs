@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CCWin;
 using System.Threading;
+using System.IO;
 
 namespace StudentM
 {
@@ -18,7 +19,7 @@ namespace StudentM
         {
             Control.CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
-            listView1.Size = new Size(this.Size.Width - 5, listView1.Size.Height);//调整listview宽度
+            listView1.Size = new Size(this.Size.Width - 20, listView1.Size.Height);//调整listview宽度
             //开始动画效果
             skinRollingBar1.StartRolling();
             //初始化
@@ -43,6 +44,7 @@ namespace StudentM
                 DataSet ds = Search.Sway();
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
+                    this.listView1.BeginUpdate();//数据更新，UI暂时挂起，直到EndUpdate绘制控件，可以有效避免闪烁并大大提高加载速度 
                     ListViewItem lvi = new ListViewItem();
                     lvi.Text = ds.Tables[0].Rows[i][0].ToString();//ID
                     lvi.SubItems.Add(ds.Tables[0].Rows[i][1].ToString());//学号
@@ -53,6 +55,7 @@ namespace StudentM
                     lvi.SubItems.Add(ds.Tables[0].Rows[i][7].ToString() == "" ? "暂无" : ds.Tables[0].Rows[i][7].ToString());//邮箱
                     lvi.SubItems.Add(ds.Tables[0].Rows[i][4].ToString());//剩余学分
                     listView1.Items.Add(lvi);
+                    this.listView1.EndUpdate(); //结束数据处理，UI界面一次性绘制。 
                 }
                 Thread.Sleep(500);
                 label5.Text = "信息获取完毕";
@@ -118,7 +121,7 @@ namespace StudentM
         private void listView1_SizeChanged(object sender, EventArgs e)
         {
             int _Count = listView1.Columns.Count;
-            int _Width = listView1.Width;
+            int _Width = listView1.Width-20;
             foreach (ColumnHeader ch in listView1.Columns)
             {
                 ch.Width = _Width / _Count;
@@ -128,7 +131,7 @@ namespace StudentM
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
             //调整listview宽度
-            listView1.Size = new Size(this.Size.Width - 5, listView1.Size.Height);
+            listView1.Size = new Size(this.Size.Width - 20, listView1.Size.Height);
         }
 
         private void pictureBox3_MouseEnter(object sender, EventArgs e)
@@ -181,6 +184,24 @@ namespace StudentM
             }
             R_questions r = new R_questions(s);
             r.Show();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            //bool b= conn.Add("16516","安豪然", "开发三班", "100", "暂无", "暂无", "暂无");
+            //MessageBox.Show(b.ToString());
+            //Read("C:\\Users\\Administrator\\Desktop\\name.txt");
+        }
+
+        public void Read(string path)
+        {
+            StreamReader sr = new StreamReader(path, Encoding.Default);
+            String line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                string[] s = line.Split('/');
+                conn.Add(s[2],s[0],s[1],"100","暂无","暂无","暂无");
+            }
         }
     }
 }
