@@ -31,12 +31,14 @@ namespace StudentM
             listView1.Items.Clear();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
+                this.listView1.BeginUpdate();
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = (ds.Tables[0].Rows[i][0].ToString());//ID
                 lvi.SubItems.Add(ds.Tables[0].Rows[i][1].ToString());//姓名
                 lvi.SubItems.Add(ds.Tables[0].Rows[i][2].ToString());//班级
                 lvi.SubItems.Add(ds.Tables[0].Rows[i][3].ToString());//学分
                 this.listView1.Items.Add(lvi);
+                this.listView1.EndUpdate();
             }
         }
 
@@ -86,7 +88,7 @@ namespace StudentM
             //for (int i = 0; i < listView1.Items.Count; i++)
             //{
             //    s[i] = listView1.Items[i].SubItems[2].Text;
-            //}
+            //}           
             //for (int i = 0; i <= 50; i++)
             //{
             //    int r = rd.Next(s.Length);
@@ -94,35 +96,34 @@ namespace StudentM
             //    Voice.said(k);
             //    Thread.Sleep(30);
             //}
-            
-             int [] arr=new int[listView1.Items.Count]; 
-             int i; 
-                //初始化数组 
-             for (i = 1; i <= listView1.Items.Count; i++)
-             {
-                 arr[i] = i;
-             }
-                //随机数 
-             Random r = new Random();
-             for (int j = 5; j >= 1; j--)
-             {
-                 int address = r.Next(1, j);
-                 int tmp = arr[address];
-                 arr[address] = arr[j];
-                 arr[j] = tmp;
-             }
-                //输出 
-             foreach (int id in arr)
-             {
-                 DataSet ds = Search.Sway();
-                 for (int j = 0; j < ds.Tables[0].Rows.Count; j++)//遍历每个姓名
-                 {
-                     string s = listView1.Items[id].SubItems[2].Text;
-                     Voice.said(s);
-                     Thread.Sleep(200);
-                 }
-             } 
-             
+
+            int[] arr = new int[listView1.Items.Count];
+            int i=0;
+            //随机数 
+            Random r = new Random();
+            for (int j = 0; j <= i; j++)
+            {
+                int address = r.Next(0, listView1.Items.Count);
+                for (int i1 = 0; i1 < arr.Length; i1++)
+                {
+                    if (arr[i1] == address) {
+                        i++;
+                        continue;
+                    }
+                }
+                arr[j] = address;
+            }
+            Thread sj = new Thread(new ParameterizedThreadStart(suijidianming));
+            sj.Start(arr);
+        }
+
+        public void suijidianming(object o) {
+            int[] ar = (int[])o;
+            foreach(int i in ar)
+            {
+               Voice.said(listView1.Items[i].SubItems[2].Text);
+               Thread.Sleep(2000);
+            }
         }
     }
 }
